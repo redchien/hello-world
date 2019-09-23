@@ -1,7 +1,7 @@
 # <strong>SAN Switch</strong>
 ## 2019/9/23 上午9:49:05
 
-## Link：<a href="#1">SAN</a>；
+## Link：<a href="#1">SAN</a>;<a href="#2">Fibre Channel定址</a>;<a href="#3">分區(Zoning)</a>;<a href="#4">別名(Alases)</a>;<a href="#5">補充</a>;<a href="#6">Command Line(CLI)未初始化</a>;<a href="#7">CLI已初始化</a>;<a href="#8">其他補充</a>;
 
 ### <span id="1">SAN</span>
 + Stroage Attachment Network : 儲存區域網路，儲存設備所構成的區域網路。
