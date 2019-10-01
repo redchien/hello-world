@@ -181,6 +181,7 @@ git reset 779e130  //切換到779e130這個Commit的狀態
 2. soft模式：</br>工作目錄跟暫存區的檔案都不會被丟掉，只有```HEAD```移動而已，Commit拆出來的檔案會直接放入暫存區。
 3. hard模式：</br>不管工作目錄跟暫存區的檔案都會丟掉。
 4. v:不變、x:丟掉。
+
 |模式|工作目錄|暫存區|
 |:---:|:---:|:---:|
 |mixed|v|x|
@@ -356,6 +357,7 @@ git rebase --continue
 ##### [狀況]Reset、Revert 跟 Rebase 指令有什麼差別？
 + 使用```git revert HEAD --no-edit```指令，再新做一個Commit來取消你不要的Commit，所以Commit數量才會增加。
 + 取消Revert：</br>1. ```git revert HEAD --no-edit```</br>2. ```git reset HEAD^ --hard```
+
 |指令|改變歷史紀錄|說明|
 |:---:|:---:|:---:|
 |Reset|v|把目前的狀態設定成某個指定的 Commit 的狀態，通常適用於尚未推出去的 Commit。|
