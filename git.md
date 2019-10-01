@@ -9,6 +9,8 @@
 6. <a href="#tag">使用標籤</a>
 7. <a href="#other">其它常見狀況題</a>
 8. <a href="#github">遠端共同協作 - 使用 GitHub</a>
+9. <a href="#web">使用 GitHub 免費製作個人網站</a>
+10. <a href="#GitFlow">Git Flow</a>
 
 ## <span id="userconfig">使用者設定</span>
 ```
@@ -461,3 +463,52 @@ git clone https://github.com/redchien/testRepo.git testrepo
 
 ##### 與其它開發者的互動 - 使用 Pull Request（PR）
 + GitHub上的機制：</br>1. 先```fork```一份原作專案到你自己GitHub帳號底下。</br>2. 在自己的GitHub帳號下，有完整權限。</br>3. 改完後，先推回自己帳號的專案。</br>4. 發個通知，讓原作者知道(Pull Request)。</br>5. 原作者覺得可以，決定把你做的這些修改合併至他的專案裡。
+
+##### [狀況]怎麼跟上當初 fork 專案的進度
++ 跟上游同步
+```
+git remote -v
+git remote add origin-project https://github.com/redchien/VSCSharp.git
+git remote -v
+git fetch origin-project
+//同步抓取原專案
+git merge origin-project/master
+//合併原專案
+git push origin master
+//推到origin遠端節點
+```
+
+##### [狀況]刪除遠端分支
++ 刪除遠端分支
+```
+//git push origin master:cats
+//將本地master分支推上去，在Server建立cats分支
+git push origin :cats
+//將master移除，等同於推一個空的內容更新cats分支內容，算是變相的把分支刪除。
+```
+
+## <span id="web">使用 GitHub 免費製作個人網站</span>
++ 僅呈現靜態頁面。
++ 不支援```.htaccess```之類的設定檔。
++ 僅能使用Git上傳。
++ 所有GitHub Pages都是公開的。
+
+##### [冷知識]沒有GitHub時，如何更新檔案
++ 製作更新檔
+```
+git log --oneline
+    //4148cd0 (HEAD -> master, origin/master) add index html
+git format-patch -1
+//產生最新的一次Commit
+//git format-patch -1 -o /tmp/patches
+```
+
++ 使用更新檔：```git am /tmp/patches/*```。
+
+## <span id="GitFlow">Git Flow</span>
++ 根據Git Flow的建議，主要的分支有```master```、```develop```、```hotfix```、```release```以及```feature```五種分支，各種分支負責不同功能。
+![GitFlow][gf]
+
+[gf]:/image/GitFlow.png
+
+##### 使用Git Flow
